@@ -146,30 +146,7 @@
                 android:textSize="14sp" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:paddingBottom="12dp">
 
-            <TextView
-                android:id="@+id/timeToGoTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Czas do wymarszu"
-                android:textSize="14sp"
-                android:layout_marginEnd="16dp" />
-
-            <ProgressBar
-                android:id="@+id/timeToWalkProgressBar"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:indeterminate="false"
-                android:max="100"
-                style="@android:style/Widget.ProgressBar.Horizontal" />
-        </LinearLayout>
 
 
         <LinearLayout
@@ -237,6 +214,72 @@
                 />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Czas treningu: "/>
+
+            <Chronometer
+                android:id="@+id/trainingTimeChronometer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+            <Button
+                android:id="@+id/startTrainingButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rozpocznij trening"
+                />
+            <Button
+                android:id="@+id/endTrainingButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Zakończ trening"
+                />
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingBottom="12dp">
+
+            <TextView
+                android:id="@+id/timeToGoTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Czas do wymarszu: 30"
+                android:textSize="14sp"
+                android:layout_marginEnd="16dp" />
+
+            <ProgressBar
+                android:id="@+id/timeToWalkProgressBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:indeterminate="false"
+                android:max="100"
+                style="@android:style/Widget.ProgressBar.Horizontal" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/startJourneyButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rozpocznij podróż"
+            />
+
         <TextView
             android:id="@+id/characterSummaryTextView"
             android:layout_width="match_parent"
@@ -245,6 +288,7 @@
             android:textSize="16sp"
             android:paddingTop="16dp"
             android:textStyle="bold" />
+
 
     </LinearLayout>
 

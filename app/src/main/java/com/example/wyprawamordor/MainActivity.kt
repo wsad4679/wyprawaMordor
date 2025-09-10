@@ -2,17 +2,26 @@ package com.example.wyprawamordor
 
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.os.SystemClock
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.CheckBox
+import android.widget.Chronometer
+import android.widget.DatePicker
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import android.widget.RatingBar
 import android.widget.SeekBar
 import android.widget.Spinner
+import android.widget.Switch
 import android.widget.TextView
+import android.widget.TimePicker
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -42,6 +51,8 @@ class MainActivity : AppCompatActivity() {
         raceSpinner.adapter = adapter
 
         val podsumowanie = findViewById<TextView>(R.id.characterSummaryTextView)
+
+        val characterImage = findViewById<ImageView>(R.id.characterImageView)
         raceSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(
                 parent: AdapterView<*>?,
@@ -92,19 +103,52 @@ class MainActivity : AppCompatActivity() {
         })
 
         val progressBar = findViewById<ProgressBar>(R.id.timeToWalkProgressBar)
-
+        val timeToGo = findViewById<TextView>(R.id.timeToGoTextView)
         val countDownTimer : CountDownTimer = object : CountDownTimer(30000, 1){
             override fun onFinish() {
-                //TODO("Not yet implemented")
+                progressBar.progress = 30000
+                Toast.makeText(this@MainActivity, "Wyruszyłeś!", Toast.LENGTH_SHORT).show()
+                timeToGo.text = "Czas do wymarszu 0"
             }
 
             override fun onTick(millisUntilFinished: Long) {
                 val progress = ((30000 - millisUntilFinished).toFloat()/30000*100).toInt()
                 progressBar.progress = progress
+                timeToGo.text = "Czas do wymarszu ${millisUntilFinished/1000}"
             }
-        }.start()
+        }
 
 
+        val elfPath = findViewById<Switch>(R.id.elfPathSwitch)
+
+        val teamMorale = findViewById<RatingBar>(R.id.teamMoraleRatingBar)
+
+        val dateOfTravel = findViewById<DatePicker>(R.id.dateDatePicker)
+        val timeOfTravel = findViewById<TimePicker>(R.id.timeTimePicker)
+        val startTraining = findViewById<Button>(R.id.startTrainingButton)
+        val endTraining = findViewById<Button>(R.id.endTrainingButton)
+        val startJourney = findViewById<Button>(R.id.startJourneyButton)
+        val trainingTime = findViewById<Chronometer>(R.id.trainingTimeChronometer)
+        var running = false
+        var pauseOffset: Long = 0
+
+        startTraining.setOnClickListener {
+            if (!running) {
+                trainingTime.base = SystemClock.elapsedRealtime() - pauseOffset
+                trainingTime.start()
+                running = true
+            }
+        }
+
+        endTraining.setOnClickListener {
+            pauseOffset = SystemClock.elapsedRealtime() - trainingTime.base
+            trainingTime.stop()
+            running = false
+        }
+
+        startJourney.setOnClickListener {
+            countDownTimer.start()
+        }
 
     }
 }
