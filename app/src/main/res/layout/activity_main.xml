@@ -1,296 +1,346 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:paddingLeft="24dp"
-    android:paddingRight="24dp">
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
-    <LinearLayout
-        android:id="@+id/main"
-        android:layout_width="match_parent"
+    <!-- Nagłówek -->
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
-        tools:context=".MainActivity">
+        android:text="Wyprawa do Mordoru"
+        android:layout_margin="10dp"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:textColor="@android:color/black"/>
 
-        <LinearLayout
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:paddingBottom="12dp">
+            app:cardBackgroundColor="#FFC258"
+            app:cardCornerRadius="20dp"
+            android:layout_margin="10dp"
+            android:layout_gravity="center">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Wybierz swoje imię: "
-                android:textSize="15sp"
-                android:gravity="center_vertical" />
+                android:orientation="vertical"
+                android:layout_margin="20dp"
+                android:background="#FFDF9E"
+                android:padding="16dp">
 
-            <EditText
-                android:id="@+id/nameEditText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="15sp"
-                android:inputType="textPersonName"
-                android:padding="8dp"
-                android:background="@android:drawable/edit_text"
-                android:layout_marginStart="8dp" />
-        </LinearLayout>
+                <!-- Imię -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="12dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:paddingBottom="12dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Wybierz swoje imię:"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#3E2723"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:text="Wybierz rasę: "
-                android:layout_marginEnd="8dp" />
+                    <EditText
+                        android:id="@+id/nameEditText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:padding="8dp"
+                        android:textSize="16sp"
+                        android:background="@android:drawable/edit_text"
+                        android:inputType="textPersonName"/>
+                </LinearLayout>
 
-            <ImageView
-                android:id="@+id/characterImageView"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginEnd="8dp"
-                android:contentDescription="Character Image"
-                android:src="@android:drawable/ic_menu_gallery" />
+                <!-- Rasa -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="12dp">
 
-            <Spinner
-                android:id="@+id/raceSpinner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp" />
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Wybierz rasę:"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="8dp"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:paddingBottom="12dp">
+                    <ImageView
+                        android:id="@+id/characterImageView"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@android:drawable/ic_menu_gallery"
+                        android:layout_marginEnd="8dp"/>
 
-            <CheckBox
-                android:id="@+id/item1CheckBox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Przedmiot 1"
-                android:layout_marginEnd="8dp" />
-            <CheckBox
-                android:id="@+id/item2CheckBox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Przedmiot 2"
-                android:layout_marginEnd="8dp" />
-            <CheckBox
-                android:id="@+id/item3CheckBox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Przedmiot 3" />
-        </LinearLayout>
+                    <Spinner
+                        android:id="@+id/raceSpinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
 
-        <RadioGroup
-            android:id="@+id/walkRadioGroup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingBottom="8dp">
+                <!-- Przedmioty -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="12dp">
 
-            <RadioButton
-                android:id="@+id/walk1RadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Marsz 1" />
-            <RadioButton
-                android:id="@+id/walk2RadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Marsz 2" />
-            <RadioButton
-                android:id="@+id/walk3RadioButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Marsz 3" />
-        </RadioGroup>
+                    <CheckBox
+                        android:id="@+id/item1CheckBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lembasy"
+                        android:textColor="#212121"
+                        android:layout_marginEnd="8dp"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:paddingBottom="12dp">
+                    <CheckBox
+                        android:id="@+id/item2CheckBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Płaszcz"
+                        android:textColor="#212121"
+                        android:layout_marginEnd="8dp"/>
 
-            <SeekBar
-                android:id="@+id/walkTimeSeekBar"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:max="100"
-                android:progress="10"
-                android:layout_weight="1"
-                android:layout_marginEnd="8dp" />
+                    <CheckBox
+                        android:id="@+id/item3CheckBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ciepła herbatka"
+                        android:textColor="#212121"/>
+                </LinearLayout>
 
-            <TextView
-                android:id="@+id/walkTimeTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Czas marszu: 10"
-                android:textSize="14sp" />
-        </LinearLayout>
+                <!-- Marsz -->
+                <RadioGroup
+                    android:id="@+id/walkRadioGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="8dp">
 
+                    <RadioButton
+                        android:id="@+id/walk1RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ostrożny marsz"
+                        android:textColor="#212121"/>
 
+                    <RadioButton
+                        android:id="@+id/walk2RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Zwykły marsz"
+                        android:textColor="#212121"/>
 
+                    <RadioButton
+                        android:id="@+id/walk3RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cała naprzód"
+                        android:textColor="#212121"/>
+                </RadioGroup>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            >
+                <!-- Czas marszu -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="12dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Użyj elfich ścieżek: "
-                android:padding="10dp"
-                />
+                    <SeekBar
+                        android:id="@+id/walkTimeSeekBar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:max="100"
+                        android:progress="10"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"/>
 
-            <Switch
-                android:id="@+id/elfPathSwitch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                tools:ignore="UseSwitchCompatOrMaterialXml" />
+                    <TextView
+                        android:id="@+id/walkTimeTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Czas marszu: 10"
+                        android:textSize="14sp"
+                        android:textColor="#3E2723"/>
+                </LinearLayout>
 
-        </LinearLayout>
+                <!-- Elfie ścieżki -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingBottom="12dp">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Użyj elfich ścieżek:"
+                        android:padding="10dp"
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Morale drużyny: "
-                android:padding="10dp"
-                android:gravity="center"
-                />
+                    <Switch
+                        android:id="@+id/elfPathSwitch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
 
-            <RatingBar
-                android:id="@+id/teamMoraleRatingBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:numStars="5"
-                android:stepSize="1"
+                <!-- Morale drużyny -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="12dp">
 
-                />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Morale drużyny:"
+                        android:padding="10dp"
+                        android:gravity="center"
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
 
-        </LinearLayout>
+                    <RatingBar
+                        android:id="@+id/teamMoraleRatingBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:numStars="5"
+                        android:stepSize="1"/>
+                </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
-            <DatePicker
-                android:id="@+id/dateDatePicker"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:datePickerMode="spinner"
-                />
-            <TimePicker
-                android:id="@+id/timeTimePicker"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:timePickerMode="spinner"
-                />
-        </LinearLayout>
+                <!-- Data i czas -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="12dp">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            >
+                    <DatePicker
+                        android:id="@+id/dateDatePicker"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:datePickerMode="spinner"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Czas treningu: "/>
+                    <TimePicker
+                        android:id="@+id/timeTimePicker"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:timePickerMode="spinner"/>
+                </LinearLayout>
 
-            <Chronometer
-                android:id="@+id/trainingTimeChronometer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
+                <!-- Trening -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"><TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Czas treningu:"
+                    android:textStyle="bold"/>
 
-            <Button
-                android:id="@+id/startTrainingButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Rozpocznij trening"
-                />
-            <Button
-                android:id="@+id/endTrainingButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Zakończ trening"
-                />
-
-
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:paddingBottom="12dp">
-
-            <TextView
-                android:id="@+id/timeToGoTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Czas do wymarszu: 30"
-                android:textSize="14sp"
-                android:layout_marginEnd="16dp" />
-
-            <ProgressBar
-                android:id="@+id/timeToWalkProgressBar"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:indeterminate="false"
-                android:max="100"
-                style="@android:style/Widget.ProgressBar.Horizontal" />
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/startJourneyButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Rozpocznij podróż"
-            />
-
-        <TextView
-            android:id="@+id/characterSummaryTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Podsumowanie postaci: "
-            android:textSize="16sp"
-            android:paddingTop="16dp"
-            android:textStyle="bold" />
+                    <Chronometer
+                        android:id="@+id/trainingTimeChronometer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"/>
+                </LinearLayout>
 
 
-    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="12dp">
 
 
-</ScrollView>
+                    <Button
+                        android:id="@+id/startTrainingButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rozpocznij"
+                        android:layout_marginStart="8dp"
+                        android:backgroundTint="#735412"
+                        android:textColor="@android:color/white"/>
+
+                    <Button
+                        android:id="@+id/endTrainingButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Zakończ"
+                        android:layout_marginStart="8dp"
+                        android:backgroundTint="#735412"
+                        android:textColor="@android:color/white"/>
+                </LinearLayout>
+
+                <!-- Progress -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="12dp">
+
+                    <TextView
+                        android:id="@+id/timeToGoTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Czas do wymarszu: 30"
+                        android:textSize="14sp"
+                        android:textColor="#3E2723"
+                        android:layout_marginEnd="16dp"/>
+
+                    <ProgressBar
+                        android:id="@+id/timeToWalkProgressBar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:indeterminate="false"
+                        android:max="100"
+                        style="@android:style/Widget.ProgressBar.Horizontal"/>
+                </LinearLayout>
+
+                <!-- Rozpocznij podróż -->
+                <Button
+                    android:id="@+id/startJourneyButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rozpocznij podróż"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#735412"
+                    android:textColor="@android:color/white"/>
+
+                <!-- Podsumowanie -->
+                <TextView
+                    android:id="@+id/characterSummaryTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Podsumowanie postaci:"
+                    android:textSize="16sp"
+                    android:paddingTop="16dp"
+                    android:textStyle="bold"
+                    android:textColor="#000000"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </ScrollView>
+</LinearLayout>
